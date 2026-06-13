@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student MS</title>
+</head>
+<body>
+<div>
+    <h1>Register new Student</h1>
+<form th:method="post" th:object="${student}"
+th:action="@{/student/register}">
+
+    <Label for="name"> Student Name</Label>
+    <input type="text"  id="name" th:field="*{name}" placeholder="Mohamed abdullahi" />
+    <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color:red"></p>
+
+    <Label for="email"> Student Email</Label>
+    <input type="email"  id="email" th:field="*{email}" placeholder="m@just.edu.so" />
+    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color:red"></p>
+
+    <Label for="city"> Student City</Label>
+    <input type="text"  id="city" th:field="*{address.city}" placeholder="Mogadishu" />
+    <p th:if="${#fields.hasErrors('address.city')}" th:errors="*{address.city}" style="color:red"></p>
+
+    <Label for="street"> Street</Label>
+    <input type="text"  id="street" th:field="*{address.street}" placeholder="jidka warshadaha" />
+    <p th:if="${#fields.hasErrors('address.street')}" th:errors="*{address.street}" style="color:red"></p>
+
+    <Label for="course"> Student Course</Label>
+    <input type="text"  id="course" th:field="*{courses}" placeholder="java..." />
+    <p th:if="${#fields.hasErrors('courses')}" th:errors="*{courses}" style="color:red"></p>
+    <button type="submit">Register</button>
+</form>
+
+</div>
+
+</body>
+</html>

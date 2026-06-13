@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${Title}">Title</title>
+</head>
+<body>
+<p th:utext="${message}"></p>
+<a th:href="@{/student/form}">Register new Student</a>
+<!--list of students-->
+    <table th:if="${not #lists.isEmpty(students)}"
+       border="1px solid black">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="student : ${students}">
+        <td th:text="${student.id}"></td>
+        <td th:text="${student.name}"></td>
+        <td th:text="${student.email}"></td>
+        <td>
+            <form th:action="@{/student/delete/{id}(id=${student.id})}"
+                  th:method="post">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<p th:if="${#lists.isEmpty(students)}"
+   style="color:gray"> No Students yet.</p>
+</body>
+</html>
