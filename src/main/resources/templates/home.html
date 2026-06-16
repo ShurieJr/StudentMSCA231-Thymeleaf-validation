@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title th:text="${Title}">Title</title>
-</head>
+<head th:replace="~{/fragments/head :: head }"></head>
 <body>
+<div class="container">
+<header th:replace="~{/fragments/navbar :: header}"></header>
 <p th:utext="${message}"></p>
-<a th:href="@{/student/form}">Register new Student</a>
+<a th:href="@{/student/form}" class="btn btn-primary">Register new Student</a>
 <!--list of students-->
     <table th:if="${not #lists.isEmpty(students)}"
        border="1px solid black">
@@ -24,9 +23,11 @@
         <td th:text="${student.name}"></td>
         <td th:text="${student.email}"></td>
         <td>
+<!--a -> update page-->
+            <a th:href="@{/student/edit/{id}(id=${student.id})}">ℹ️ </a>
             <form th:action="@{/student/delete/{id}(id=${student.id})}"
                   th:method="post">
-                <button type="submit">Delete</button>
+                <button type="submit">❌</button>
             </form>
         </td>
     </tr>
@@ -34,5 +35,8 @@
 </table>
 <p th:if="${#lists.isEmpty(students)}"
    style="color:gray"> No Students yet.</p>
+
+<footer th:replace="~{/fragments/footer :: footer}"></footer>
+</div>
 </body>
 </html>

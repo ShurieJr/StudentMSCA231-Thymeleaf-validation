@@ -52,4 +52,25 @@ public class StudentService {
     public void deleteStudent(Long id) {
          students.remove(id);
     }
+
+    public StudentResponse updateStudent( StudentRequest request){
+        Student std = students.get(request.getId());
+
+        Address newAddress = new Address();
+        newAddress.setStreet(request.getAddress().getStreet());
+        newAddress.setCity(request.getAddress().getCity());
+
+
+
+
+        std.setAddress(newAddress);
+        std.setName(request.getName());
+        std.setEmail(request.getEmail());
+
+        std.setCourses(request.getCourses());
+
+        students.put(request.getId(), std);
+
+        return StudentResponse.from(std);
+    }
 }
