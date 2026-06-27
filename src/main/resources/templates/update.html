@@ -2,34 +2,92 @@
 <html lang="en">
 <head th:replace="~{/fragments/head :: head }"></head>
 <body>
-<div>
+<div class="container">
+    <header th:replace="~{/fragments/navbar :: header}"></header>
     <h1>Update Student Details</h1>
     <form th:method="post" th:object="${student}"
           th:action="@{/student/update/{id}(id=${student.id})}">
 
-        <Label for="name"> Student Name</Label>
-        <input type="text"  id="name" th:field="*{name}" placeholder="Mohamed abdullahi" />
-        <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color:red"></p>
+        <div class="row  align-items-center mb-3">
+            <div class="col-auto">
+                <Label for="name" class="form-label"> Student Name</Label>
+            </div>
+            <div class="col-auto">
+                <input type="text"  id="name" th:field="*{name}" placeholder="Mohamed abdullahi" class="form-control"/>
+            </div>
+            <div class="col-auto">
+             <span class="form-text">
+    <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color:red"></p>
+             </span>
+            </div>
+        </div>
 
-        <Label for="email"> Student Email</Label>
-        <input type="email"  id="email" th:field="*{email}" placeholder="m@just.edu.so" />
-        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color:red"></p>
 
-        <Label for="city"> Student City</Label>
-        <input type="text"  id="city" th:field="*{address.city}" placeholder="Mogadishu" />
-        <p th:if="${#fields.hasErrors('address.city')}" th:errors="*{address.city}" style="color:red"></p>
+        <div class="row  align-items-center mb-3">
+            <div class="col-auto">
+                <Label for="email" class="form-label"> Student email</Label>
+            </div>
+            <div class="col-auto">
+                <input type="email"  id="email" th:field="*{email}" placeholder="example@just.edu.so" class="form-control"/>
+            </div>
+            <div class="col-auto">
+             <span class="form-text">
+    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color:red"></p>
+             </span>
+            </div>
+        </div>
 
-        <Label for="street"> Street</Label>
-        <input type="text"  id="street" th:field="*{address.street}" placeholder="jidka warshadaha" />
-        <p th:if="${#fields.hasErrors('address.street')}" th:errors="*{address.street}" style="color:red"></p>
 
-        <Label for="course"> Student Course</Label>
-        <input type="text"  id="course" th:field="*{courses}" placeholder="java..." />
-        <p th:if="${#fields.hasErrors('courses')}" th:errors="*{courses}" style="color:red"></p>
-        <button type="submit">Update</button>
+        <div class="row  align-items-center mb-3">
+            <div class="col-auto">
+                <Label for="city" class="form-label"> City</Label>
+            </div>
+            <div class="col-auto">
+                <input type="text"  id="city" th:field="*{address.city}" placeholder="address-City" class="form-control"/>
+            </div>
+            <div class="col-auto">
+             <span class="form-text">
+    <p th:if="${#fields.hasErrors('address.city')}" th:errors="*{address.city}" style="color:red"></p>
+             </span>
+            </div>
+        </div>
+
+
+        <div class="row  align-items-center mb-3">
+            <div class="col-auto">
+                <Label for="street" class="form-label"> Street</Label>
+            </div>
+            <div class="col-auto">
+                <input type="text"  id="street" th:field="*{address.street}" placeholder="address-Street" class="form-control"/>
+            </div>
+            <div class="col-auto">
+             <span class="form-text">
+    <p th:if="${#fields.hasErrors('address.street')}" th:errors="*{address.street}" style="color:red"></p>
+             </span>
+            </div>
+        </div>
+
+        <div class="row  align-items-center mb-3">
+            <div class="col-auto">
+                <Label for="courses" class="form-label"> Courses</Label>
+            </div>
+            <div class="col-auto">
+                <input type="text"  id="courses" th:field="*{courses}" placeholder="course" class="form-control"/>
+            </div>
+            <div class="col-auto">
+             <span class="form-text">
+    <p th:if="${#fields.hasErrors('courses')}" th:errors="*{courses}" style="color:red"></p>
+             </span>
+            </div>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Update</button>
     </form>
 
+
+
+    <footer th:replace="~{/fragments/footer :: footer}"></footer>
 </div>
-<footer th:replace="~{/fragments/footer :: footer}"></footer>
 </body>
 </html>

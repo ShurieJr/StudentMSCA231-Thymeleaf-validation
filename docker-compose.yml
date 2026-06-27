@@ -1,0 +1,20 @@
+services:
+  postgres:
+    container_name: postgres_Ca231
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ca231
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: studentdb
+    ports:
+      - "5432:5432"
+  pgadmin:
+    container_name: pgadmin4_CA231
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ca231@just.edu.so
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"

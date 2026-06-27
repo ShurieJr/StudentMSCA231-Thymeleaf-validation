@@ -8,10 +8,10 @@
 <a th:href="@{/student/form}" class="btn btn-primary">Register new Student</a>
 <!--list of students-->
     <table th:if="${not #lists.isEmpty(students)}"
-       border="1px solid black">
+           class="table table-hover">
     <thead>
     <tr>
-        <th>ID</th>
+        <th >ID</th>
         <th>Name</th>
         <th>Email</th>
         <th>Action</th>
