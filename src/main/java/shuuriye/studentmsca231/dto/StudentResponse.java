@@ -16,7 +16,7 @@ public class StudentResponse {
     private String name;
     private String email;
     private Address address = new Address();
-    private List<String> courses;
+    private String courses;
 
 
     //convertion  from entity to dto

@@ -18,5 +18,5 @@ public class Student {
     private String passcode;
 
     private Address address = new Address();
-    private List<String> courses;
+    private String courses;
 }

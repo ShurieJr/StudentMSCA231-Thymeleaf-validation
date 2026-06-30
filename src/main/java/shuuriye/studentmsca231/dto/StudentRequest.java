@@ -39,9 +39,8 @@ public class StudentRequest {
 @Valid
     private AddressRequest address = new AddressRequest();   //nested object
 
-    @NotEmpty(message = "at least one course is required" ,
+    @NotBlank(message="invalid course name" ,
             groups={ ValidationGroups.Create.class ,  ValidationGroups.Update.class })
-    private List<@NotBlank(message="invalid course name" ,
-            groups={ ValidationGroups.Create.class ,  ValidationGroups.Update.class })  String> courses;
+    private String courses;
 
 }
